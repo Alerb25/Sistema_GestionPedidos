@@ -24,4 +24,11 @@ public class Cliente {
     public void setCorreo(){ this.correo = correo;}
     public void setDireccion(){ this.direccion = direccion;}
     public void setTelf(){ this.telf = telf;}
+
+    public String getNombre() {return this.nombre;}
+    public String getDNI() {return this.DNI;}
+    public String getApellidos() {return this.apellidos;}
+    public String getCorreo() {return this.correo;}
+    public String getDireccion() {return this.direccion;}
+    public int getTelf() {return this.telf;} 
 }
