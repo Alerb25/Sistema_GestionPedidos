@@ -4,8 +4,8 @@ public  class ProductoDigital extends Producto{
     private String licencia;
 
     //constructor
-    public ProductoDigital (int Id_Prod, String nombreProd, int precio, int tamanoDesc, String licencia){
-        super(Id_Prod, nombreProd, precio);
+    public ProductoDigital ( String nombreProd, int precio, int tamanoDesc, String licencia){
+        super( nombreProd, precio);
         this.tamanoDesc = tamanoDesc;
         this.licencia = licencia;
     }

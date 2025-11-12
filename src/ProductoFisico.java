@@ -2,8 +2,8 @@ public class ProductoFisico extends Producto{
     private int costeEnvio;
     
     //constructor
-    public ProductoFisico (int Id_Prod, String nombreProd, int precio, int costeEnvio){
-        super(Id_Prod, nombreProd, precio);
+    public ProductoFisico ( String nombreProd, int precio, int costeEnvio){
+        super( nombreProd, precio);
         this.costeEnvio = costeEnvio;
     }
 
