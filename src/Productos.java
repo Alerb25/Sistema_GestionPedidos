@@ -11,6 +11,16 @@ public class Producto{
 
     }
 
+    //metodos get y set
+    public void setId(){this.Id_Prod = Id_Prod;}
+    public void setnombre(){this.nombreProd = nombreProd;}
+    public void setPrecio(){ this.precio = precio; }
+
+    public int getId(){ return this.Id_Prod; }
+    public int getNombre(){ return this.nombreProd; }
+    public int getPrecio(){ return this.precio; }
+
+
 }
 
 public class ProductoFisico extends Producto{
@@ -21,6 +31,11 @@ public class ProductoFisico extends Producto{
         super(Id_Prod, nombreProd, precio);
         this.costeEnvio = costeEnvio;
     }
+
+    //metodos set y get
+    public void setCosteEnv(){ this.costeEnvio = costeEnvio;}
+
+    public int getCosteEnv(){ return this.costeEnvio; }
 
 }
 
@@ -34,4 +49,11 @@ public  class ProductoDigital extends Producto{
         this.tamanoDesc = tamanoDesc;
         this.licencia = licencia;
     }
+
+    //metodo set y get
+    public void setTamano(){ this.tamanoDesc = tamanoDesc;}
+    public void setLicencia(){ this.licencia = licencia; }
+
+    public int getTamanoDesc(){ return this.tamanoDesc; }
+    public int getLicencia(){ return this.licencia; }
 }
