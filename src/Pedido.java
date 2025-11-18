@@ -12,9 +12,15 @@ public class Pedido {
     public String mostrarResumen(){
         System.out.println("El resumen del pedido es:  ");
         System.out.println("el numero de pedido");
-        return numPedido;
+        String s = String.valueOf(numPedido);
+        System.out.println(s);
         System.out.println("El listado de productos: ");
-        //llamar a listarProducos    
+        
+        //llamar a listarProductos    
+        public void listarProductos(){
+             Producto p;
+             p.listarProductos();
+        }
         
     }
     
