@@ -14,7 +14,7 @@ public class Pedido {
         System.out.println("el numero de pedido");
         return numPedido;
         System.out.println("El listado de productos: ");
-            
+        //llamar a listarProducos    
         
     }
     
