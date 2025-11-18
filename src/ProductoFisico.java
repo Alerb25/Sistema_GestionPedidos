@@ -1,8 +1,8 @@
 public class ProductoFisico extends Producto{
-    private int costeEnvio;
+    private double costeEnvio;
     
     //constructor
-    public ProductoFisico ( String nombreProd, int precio, int costeEnvio){
+    public ProductoFisico ( String nombreProd, double precio, double costeEnvio){
         super( nombreProd, precio);
         this.costeEnvio = costeEnvio;
     }
@@ -10,6 +10,6 @@ public class ProductoFisico extends Producto{
     //metodos set y get
     public void setCosteEnv(){ this.costeEnvio = costeEnvio;}
 
-    public int getCosteEnv(){ return this.costeEnvio; }
+    public double getCosteEnv(){ return this.costeEnvio; }
 
 }

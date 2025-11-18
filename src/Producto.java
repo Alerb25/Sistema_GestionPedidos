@@ -1,10 +1,10 @@
-public class Producto{
+abstract class Producto{
    
     private String nombreProd;
-    private int precio;
+    private double precio;
     
     //constructor
-    public Producto(String nombreProd, int precio){
+    public Producto(String nombreProd, double precio){
         this.nombreProd = nombreProd;
         this.precio = precio;
 
@@ -16,13 +16,23 @@ public class Producto{
 
     
     public String getNombre(){ return this.nombreProd; }
-    public int getPrecio(){ return this.precio; }
+    public double getPrecio(){ return this.precio; }
 
     //metodo calcular el precio final
     //dependiendo si es fisico o digital se le suma la licencia o el coste de envio
 
+    public double calcularPrecio(Producto p){
+        if (p instanceof ProductoFisico){
+           ProductoFisico pf = (ProductoFisico) p;
+           double coste =  pf.getCosteEnv();
+           coste += precio;
+
+        }else if (p instanceof ProductoDigital){
+            return precio;
+        }
 
     //crear metodo listarProductos()
-}
 
+    }
+}
 
