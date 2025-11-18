@@ -18,6 +18,8 @@ public class Producto{
     public String getNombre(){ return this.nombreProd; }
     public int getPrecio(){ return this.precio; }
 
+    //metodo calcular el precio final
+    //dependiendo si es fisico o digital se le suma la licencia o el coste de envio
 
 }
 
