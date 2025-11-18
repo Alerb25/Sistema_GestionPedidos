@@ -21,6 +21,8 @@ public class Producto{
     //metodo calcular el precio final
     //dependiendo si es fisico o digital se le suma la licencia o el coste de envio
 
+
+    //crear metodo listarProductos()
 }
 
 
