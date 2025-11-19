@@ -1,10 +1,9 @@
-import java.util.ArrayList;
 
 abstract class Producto {
 
     private String nombreProd;
     private double precio;
-    private ArrayList<Producto> productos;
+    
 
     // constructor
     public Producto(String nombreProd, double precio) {
@@ -38,19 +37,14 @@ abstract class Producto {
            ProductoFisico pf = (ProductoFisico) p;
            double coste =  pf.getCosteEnv();
            coste += precio;
+           return coste;
 
         }else if (p instanceof ProductoDigital){
             return precio;
+        }else {
+            return precio;
         }
-
-    // crear metodo listarProductos()
-    public String listarProductos() {
-        StringBuilder sb = new StringBuilder();
-        for (Producto p : productos) {
-            sb.append(p.toString()).append("\n");
-        }
-
-        return sb.toString();
-
     }
+
+ 
 }
