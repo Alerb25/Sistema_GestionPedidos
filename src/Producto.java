@@ -42,6 +42,7 @@ abstract class Producto {
         }else if (p instanceof ProductoDigital){
             return precio;
         }
+    }
 
     // crear metodo listarProductos()
     public String listarProductos() {
