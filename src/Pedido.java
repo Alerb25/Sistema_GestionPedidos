@@ -2,10 +2,12 @@ import java.util.ArrayList;
 
 public class Pedido {
     private int numPedido;
+    private Cliente cliente;
     private ArrayList<Producto> productos;
 
-    public Pedido(int numPedido) {
+    public Pedido(int numPedido, Cliente cliente) {
         this.numPedido = numPedido;
+        this.cliente = cliente;
         this.productos = new ArrayList<>(); // Inicializar aquí
     }
 
@@ -44,13 +46,14 @@ public class Pedido {
     }
 
     // mostrarResumen()
-    public void mostrarResumen() {
+     public void mostrarResumen() {
         System.out.println("=== RESUMEN DEL PEDIDO ===");
         System.out.println("Número de pedido: " + numPedido);
+        System.out.println("Cliente: " + cliente.getNombre() + " " + cliente.getApellidos());  
+        System.out.println("DNI: " + cliente.getDNI());  
         System.out.println("\nListado de productos:");
         System.out.println(listarProductos());
-        System.out.println("Total (con IVA): " + calcularTotal() + "€");
-
+        System.out.println("Total (con IVA): " + String.format("%.2f", calcularTotal()) + "€");
     }
 
 }
