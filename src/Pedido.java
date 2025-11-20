@@ -4,15 +4,21 @@ public class Pedido {
     private int numPedido;
     private ArrayList<Producto> productos;
 
+    public Pedido(int numPedido) {
+        this.numPedido = numPedido;
+        this.productos = new ArrayList<>();  // Inicializar aquí
+    }
+
+
     // se utiliza método agregar producto
     // (coger el tipo de producto, el nombre, y los atributos que tenga segun el
     // tipo)
-    public void agregarProducto(){
-         
+    public void agregarProducto( Producto o){
+         productos.add(o);
     }
 
     // metodo calcularTotal() (vamos sumarle el IVA)
-    public void calcularTotal(Pedido pd){
+    public void calcularTotal(){
         for (Producto p : productos){
             double suma = 0;
             suma = p.calcularPrecio(p);
@@ -34,16 +40,12 @@ public class Pedido {
     }
 
     // mostrarResumen()
-    public void mostrarResumen(Pedido p) {
-        System.out.println("El resumen del pedido es:  ");
-        System.out.println("el numero de pedido");
-        String s = String.valueOf(numPedido);
-        System.out.println(s);
-        System.out.println("El listado de productos: ");
-
-        // llamar a listarProductos
-        System.out.println(p.listarProductos());
-        
+    public void mostrarResumen(){
+        System.out.println("=== RESUMEN DEL PEDIDO ===");
+        System.out.println("Número de pedido: " + numPedido);
+        System.out.println("\nListado de productos:");
+        System.out.println(listarProductos());
+        System.out.println("Total (con IVA): " + calcularTotal() + "€");
 
     }
 
