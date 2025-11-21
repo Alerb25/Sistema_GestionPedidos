@@ -14,7 +14,7 @@ public class main {
         System.out.println("Cliente creado: " + cliente1.getNombre() + " " + cliente1.getApellidos());
 
         // crear producto fisico
-        System.out.println("Creando productos físicos...");
+        
         ProductoFisico libro = new ProductoFisico(
             "Libro de Java Avanzado", 
             45.50, 
