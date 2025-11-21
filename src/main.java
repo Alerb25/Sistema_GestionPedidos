@@ -31,7 +31,6 @@ public class main {
         System.out.println();
         
         // crear producto digital
-        System.out.println("Creando productos digitales...");
         ProductoDigital software = new ProductoDigital(
             "Licencia Adobe Creative Cloud", 
             59, 
@@ -47,16 +46,16 @@ public class main {
             "Perpetua"
         );
         System.out.println("Producto digital creado: " + ebook.getNombre() + " - " + ebook.getPrecio() + "€");
-        System.out.println();
+        
         
         // crear pedido
-        System.out.println("Creando pedido...");
+       
         Pedido pedido1 = new Pedido(1001, cliente1);
         System.out.println("Pedido #1001 creado para " + cliente1.getNombre());
         System.out.println();
         
         //añadir productos al pedido
-        System.out.println("Agregando productos al pedido...");
+        
         pedido1.agregarProducto(libro);
         System.out.println("Agregado: " + libro.getNombre());
         
@@ -84,7 +83,7 @@ public class main {
             String.format("%.2f", software.calcularPrecio(software)) + "€");
         
         // Crear segundo pedido para probar
-        System.out.println("\n Creando segundo pedido...");
+        
         Cliente cliente2 = new Cliente(
             "María", 
             "87654321B", 
