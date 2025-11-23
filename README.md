@@ -16,7 +16,7 @@ Antes de ejecutar el sistema, asegúrate de tener instalado:
 
 ## Instalación
 1. Clonar el repositorio
-    ** git clone https://github.com/Alerb25/Sistema_GestionPedidos.git
+    - git clone https://github.com/Alerb25/Sistema_GestionPedidos.git
 2. Abrir el proyecto en tu IDE
 3. Ejecutar el Main.java
 
