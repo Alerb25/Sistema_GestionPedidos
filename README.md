@@ -60,4 +60,6 @@ Al finalizar cada pedido, el sistema mostrará por pantalla un resumen detallado
 - Lista de productos con cantidades y precios
 - Importe total a pagar
 
-
+***
+(Enlace a la presentación de Canva)
+https://www.canva.com/design/DAG6SOE4ZQQ/2NQUfyDSr85ah8emMXQMiw/view?utm_content=DAG6SOE4ZQQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8d530a0d14
