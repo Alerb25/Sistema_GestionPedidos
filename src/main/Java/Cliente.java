@@ -32,4 +32,14 @@ public class Cliente {
     public String getCorreo() {return this.correo;}
     public String getDireccion() {return this.direccion;}
     public int getTelf() {return this.telf;} 
+
+    // metodo resumen de datos del cliente
+    public String Datos(){
+        return "Nombre: " + getNombre() + "\n"
+        + "Apellidos: "+ getApellidos() + "\n"
+        + "DNI: " + getDNI() + "\n"
+        + "Correo:" + getCorreo() + "\n"
+        + "Direccion: " + getDireccion() + "\n"
+        + "Telefono: " + getTelf();
+    }
 }
