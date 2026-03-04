@@ -1,4 +1,4 @@
-
+package main.Java;
 public  class ProductoDigital extends Producto{
     private int tamanoDesc;
     private String licencia;
