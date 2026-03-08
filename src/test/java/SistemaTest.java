@@ -1,7 +1,9 @@
+package java;
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
-public class test {
+public class SistemaTest {
 
     
     // TEST CLIENTE
@@ -79,7 +81,7 @@ public class test {
         // Arrange
         Pedido pedido = new Pedido();
 
-        Producto p1 = new Producto("Ratón", 10.0, true);
+        Producto p1 = new Producto("Raton", 10.0, true);
         Producto p2 = new Producto("Monitor", 100.0, true);
 
         pedido.agregarProducto(p1);
