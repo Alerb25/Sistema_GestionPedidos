@@ -1,4 +1,4 @@
-package main.Java;
+package java;
 
 abstract class Producto {
 

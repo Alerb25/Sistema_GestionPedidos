@@ -1,4 +1,4 @@
-package main.Java;
+package java;
 import java.util.ArrayList;
 
 public class Pedido {

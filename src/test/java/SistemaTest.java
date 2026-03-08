@@ -1,6 +1,5 @@
 package java;
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
 public class SistemaTest {
@@ -17,7 +16,6 @@ public class SistemaTest {
 
         // Act
         String resultado = cliente.Datos();
-
         // Assert
         assertTrue(resultado.contains("Juan"));
         assertTrue(resultado.contains("Perez"));
