@@ -1,4 +1,4 @@
-package java;
+package sistema;
 public  class ProductoDigital extends Producto{
     private int tamanoDesc;
     private String licencia;
@@ -8,6 +8,14 @@ public  class ProductoDigital extends Producto{
         super( nombreProd, precio);
         this.tamanoDesc = tamanoDesc;
         this.licencia = licencia;
+    }
+
+    public ProductoDigital(String string, double d, boolean b) {
+        //TODO Auto-generated constructor stub
+    }
+
+    public ProductoDigital(String string, double d, boolean b) {
+        //TODO Auto-generated constructor stub
     }
 
     //metodo set y get

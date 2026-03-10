@@ -1,4 +1,4 @@
-package java;
+package sistema;
 
 abstract class Producto {
 

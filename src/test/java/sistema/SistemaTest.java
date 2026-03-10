@@ -1,6 +1,12 @@
-package java;
+package sistema;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import sistema.Cliente;
+import sistema.Producto;
+import sistema.ProductoDigital;
+import sistema.ProductoFisico;
+import sistema.Pedido;
+
 
 public class SistemaTest {
 
@@ -12,7 +18,7 @@ public class SistemaTest {
     void testDatosCliente() {
 
         // Arrange
-        Cliente cliente = new Cliente("Juan", "Perez", "Calle 123", "600123456");
+        Cliente cliente = new Cliente("Juan", "Perez", "Calle 123", "600123456", null, 0);
 
         // Act
         String resultado = cliente.Datos();
@@ -31,10 +37,10 @@ public class SistemaTest {
     void testPrecioProductoDigital() {
 
         // Arrange
-        Producto producto = new Producto("Curso Online", 50.0, false);
+        ProductoDigital producto = new ProductoDigital("Curso Online", 50.0, false);
 
         // Act
-        double precio = producto.calcularPrecio();
+        double precio = producto.calcularPrecio(producto);
 
         // Assert
         assertEquals(50.0, precio);

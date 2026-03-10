@@ -1,4 +1,4 @@
-package java;
+package sistema;
 public class Cliente {
     
     private String nombre;
