@@ -9,7 +9,7 @@ import sistema.Pedido;
 
 
 public class SistemaTest {
-
+    Cliente cli = new Cliente("Maria", "11111111A", "Perez", "maria@gmail.com", "Calle 123", 111111111);
     
     // TEST CLIENTE
     
@@ -18,13 +18,15 @@ public class SistemaTest {
     void testDatosCliente() {
 
         // Arrange
-        Cliente cliente = new Cliente("Juan", "Perez", "Calle 123", "600123456", null, 0);
+        Cliente cliente = new Cliente("Juan", "44444444A", "Perez", "juan@gmail.com", "Calle 123", 600123456);
 
         // Act
         String resultado = cliente.Datos();
         // Assert
         assertTrue(resultado.contains("Juan"));
+        assertTrue(resultado.contains("44444444A"));
         assertTrue(resultado.contains("Perez"));
+        assertTrue(resultado.contains("juan@gmail.com"));
         assertTrue(resultado.contains("Calle 123"));
         assertTrue(resultado.contains("600123456"));
     }
@@ -67,7 +69,7 @@ public class SistemaTest {
     void testCalcularTotalUnProducto() {
 
         // Arrange
-        Pedido pedido = new Pedido(0, null);
+        Pedido pedido = new Pedido(0, cli);
         ProductoFisico producto = new ProductoFisico("Teclado", 20.0, 5.0);
 
         pedido.agregarProducto(producto);
@@ -76,14 +78,14 @@ public class SistemaTest {
         double total = pedido.calcularTotal();
 
         // Assert
-        assertEquals(20.0, total);
+        assertEquals(30.25, total);
     }
 
     @Test
     void testCalcularTotalVariosProductos() {
 
         // Arrange
-        Pedido pedido = new Pedido(0, null);
+        Pedido pedido = new Pedido(0, cli);
 
         ProductoFisico p1 = new ProductoFisico("Raton", 10.0, 2.0);
         ProductoFisico p2 = new ProductoFisico("Monitor", 100.0, 5.0);
@@ -102,7 +104,7 @@ public class SistemaTest {
     void testPedidoVacio() {
 
         // Arrange
-        Pedido pedido = new Pedido(0, null);
+        Pedido pedido = new Pedido(0, cli);
 
         // Act
         double total = pedido.calcularTotal();
