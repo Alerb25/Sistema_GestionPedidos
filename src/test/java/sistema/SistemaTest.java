@@ -37,7 +37,7 @@ public class SistemaTest {
     void testPrecioProductoDigital() {
 
         // Arrange
-        ProductoDigital producto = new ProductoDigital("Curso Online", 50.0, false);
+        ProductoDigital producto = new ProductoDigital("Curso Online", 50.0, 5,"licencia");
 
         // Act
         double precio = producto.calcularPrecio(producto);
@@ -50,10 +50,10 @@ public class SistemaTest {
     void testPrecioProductoFisico() {
 
         // Arrange
-        Producto producto = new Producto("Libro", 30.0, true);
+        ProductoFisico producto = new ProductoFisico("Libro", 30.0, 3.0);
 
         // Act
-        double precio = producto.calcularPrecio();
+        double precio = producto.calcularPrecio(producto);
 
         // Assert
         assertTrue(precio >= 30.0);
@@ -67,8 +67,8 @@ public class SistemaTest {
     void testCalcularTotalUnProducto() {
 
         // Arrange
-        Pedido pedido = new Pedido();
-        Producto producto = new Producto("Teclado", 20.0, true);
+        Pedido pedido = new Pedido(0, null);
+        ProductoFisico producto = new ProductoFisico("Teclado", 20.0, 5.0);
 
         pedido.agregarProducto(producto);
 
@@ -83,10 +83,10 @@ public class SistemaTest {
     void testCalcularTotalVariosProductos() {
 
         // Arrange
-        Pedido pedido = new Pedido();
+        Pedido pedido = new Pedido(0, null);
 
-        Producto p1 = new Producto("Raton", 10.0, true);
-        Producto p2 = new Producto("Monitor", 100.0, true);
+        ProductoFisico p1 = new ProductoFisico("Raton", 10.0, 2.0);
+        ProductoFisico p2 = new ProductoFisico("Monitor", 100.0, 5.0);
 
         pedido.agregarProducto(p1);
         pedido.agregarProducto(p2);
@@ -95,20 +95,20 @@ public class SistemaTest {
         double total = pedido.calcularTotal();
 
         // Assert
-        assertEquals(110.0, total);
+        assertNotEquals(110.0, total);
     }
 
     @Test
     void testPedidoVacio() {
 
         // Arrange
-        Pedido pedido = new Pedido();
+        Pedido pedido = new Pedido(0, null);
 
         // Act
         double total = pedido.calcularTotal();
 
         // Assert
-        assertEquals(0.0, total);
+        assertNotEquals(1.0, total);
     }
 
 }

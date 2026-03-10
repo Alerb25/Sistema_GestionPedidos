@@ -4,18 +4,10 @@ public  class ProductoDigital extends Producto{
     private String licencia;
 
     //constructor
-    public ProductoDigital ( String nombreProd, int precio, int tamanoDesc, String licencia){
+    public ProductoDigital ( String nombreProd, double precio, int tamanoDesc, String licencia){
         super( nombreProd, precio);
         this.tamanoDesc = tamanoDesc;
         this.licencia = licencia;
-    }
-
-    public ProductoDigital(String string, double d, boolean b) {
-        //TODO Auto-generated constructor stub
-    }
-
-    public ProductoDigital(String string, double d, boolean b) {
-        //TODO Auto-generated constructor stub
     }
 
     //metodo set y get
