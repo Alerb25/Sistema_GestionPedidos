@@ -15,6 +15,10 @@
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   <maven.compiler.source>11</maven.compiler.source>
   <maven.compiler.target>11</maven.compiler.target>
+  <!--SonarQube -->
+  <sonar.host.url>http://localhost:9000</sonar.host.url>
+  <sonar.projectKey>SistemaGestorPedidos</sonar.projectKey>
+  <sonar.token>sqp_9e71795b87e1c8fc50a4b64c96be4968f551b3e8</sonar.token>
  </properties>
 
  <dependencies>
