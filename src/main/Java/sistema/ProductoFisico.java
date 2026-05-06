@@ -1,4 +1,4 @@
-package java;
+package sistema;
 public class ProductoFisico extends Producto{
     private double costeEnvio;
     
