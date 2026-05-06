@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: sistema.GestionPedidosIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.070 s <<< FAILURE! -- in sistema.GestionPedidosIntegrationTest
-sistema.GestionPedidosIntegrationTest.noDeberiaFallarSiSeAgregaProductoNulo -- Time elapsed: 0.031 s <<< FAILURE!
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.065 s <<< FAILURE! -- in sistema.GestionPedidosIntegrationTest
+sistema.GestionPedidosIntegrationTest.noDeberiaFallarSiSeAgregaProductoNulo -- Time elapsed: 0.034 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: El sistema debería filtrar productos nulos en la integración ==> Unexpected exception thrown: java.lang.NullPointerException: Cannot invoke "sistema.Producto.calcularPrecio(sistema.Producto)" because "p" is null
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
 	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:84)
@@ -15,12 +15,12 @@ org.opentest4j.AssertionFailedError: El sistema debería filtrar productos nulos
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 Caused by: java.lang.NullPointerException: Cannot invoke "sistema.Producto.calcularPrecio(sistema.Producto)" because "p" is null
 	at sistema.Pedido.calcularTotal(Pedido.java:28)
-	at sistema.GestionPedidosIntegrationTest.lambda$noDeberiaFallarSiSeAgregaProductoNulo$0(GestionPedidosIntegrationTest.java:58)
+	at sistema.GestionPedidosIntegrationTest.lambda$0(GestionPedidosIntegrationTest.java:58)
 	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:49)
 	... 6 more
 
-sistema.GestionPedidosIntegrationTest.deberiaCalcularTotalConProductosMixtos -- Time elapsed: 0.003 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: El pedido no integró correctamente los precios finales de los productos ==> expected: <93.5> but was: <98.615>
+sistema.GestionPedidosIntegrationTest.deberiaCalcularTotalConProductosMixtos -- Time elapsed: 0 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: El pedido no integró correctamente los precios finales de los productos ==> expected: <92.0> but was: <98.615>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
 	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)

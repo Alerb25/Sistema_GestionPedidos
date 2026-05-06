@@ -36,7 +36,7 @@ class GestionPedidosIntegrationTest {
 
         // 3. Assert (Verificar)
         // El total esperado es la suma de los cálculos internos de cada producto
-        double totalEsperado = 33.0 + 60.5;
+        double totalEsperado = 31.5 + 60.5;
         
         assertEquals(totalEsperado, totalObtenido, "El pedido no integró correctamente los precios finales de los productos");
     }
