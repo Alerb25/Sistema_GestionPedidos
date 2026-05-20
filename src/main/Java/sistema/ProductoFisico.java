@@ -26,7 +26,7 @@ public class ProductoFisico extends Producto{
 
     public double calcularPrecioFinal(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el paisal que se va a enviar: ");
+        System.out.println("Introduce el pais al que se va a enviar: ");
         String respuesta = sc.nextLine();
         double result = calcularCosteEnvio(respuesta);
         result += getPrecioBase();
