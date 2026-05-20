@@ -34,16 +34,19 @@ public class ProductoDigital extends Producto {
         switch (tipoIva) {
             case "GENERAL":
                 double result = getPrecioBase() * 1.21;
+                break;
             case "REDUCIDO":
                  result = getPrecioBase() * 1.10;
+                 break;
             case "SUPER":
                 result = getPrecioBase() * 1.04;
-
+                break;
+            default: throw new IllegalArgumentException("Tipo de IVA no válido: " + tipoIva);
         }
         return result;
     }
 
-    public double calcularPrecioFinal(Producto p) {
+    public double calcularPrecioFinal() {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce el tipo de IVA (todo en minusculas) : ");
@@ -51,12 +54,16 @@ public class ProductoDigital extends Producto {
         switch (respuesta) {
             case "general":
                 aplicarIVA("GENERAL");
+                break;
             case "reducido":
                 aplicarIVA("REDUCIDO");
+                break;
             case "super":
                 aplicarIVA("SUPER");
+                break;
             default:
                 throw new IllegalArgumentException("Tipo de IVA no válido: " + tipoIva);
+                break;
         }
     }
 

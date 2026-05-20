@@ -1,5 +1,7 @@
 package sistema;
 
+import java.time.LocalDate;
+
 public class Factura {
     private String codigoFactura;
     private LocalDate fechaEmision;
