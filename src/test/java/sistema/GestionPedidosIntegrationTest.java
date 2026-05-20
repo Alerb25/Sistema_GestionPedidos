@@ -1,56 +1,51 @@
 package sistema;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
+
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-
-
-@DisplayName("Tests de Integración: Flujo de Pedidos y Productos")
-class GestionPedidosIntegrationTest {
-
-    private Pedido pedido;
-
-    @BeforeEach
-    void setUp() {
-        // Inicializamos el escenario: Un pedido vacío antes de cada test
-        pedido = new Pedido(0, null);
-    }
+public class GestionPedidosIntegrationTest {
 
     @Test
-    @DisplayName("Integración: Cálculo de total con múltiples tipos de productos")
-    void deberiaCalcularTotalConProductosMixtos() {
-        // 1. Arrange (Preparar)
-        // Creamos productos reales para ver cómo interactúan con el pedido
-        ProductoFisico libro = new ProductoFisico(0, "Libro Java", 30.0, 1.5); // 30 + (1.5 * 2) = 33.0
-        ProductoDigital curso = new ProductoDigital(0, "Curso Online", 50.0, 0, "C-202"); // 50.0 + (50*0.21) = 60.5
+    public void deberiaCalcularTotalConProductosMixtos() {
+        // Cliente en Francia (coste envío para producto físico = 5€)
+        Cliente cliente = new Cliente("Test", "123", "User", "a@b.com", "Dir", 123, 1, false, "Francia", 1);
+        Pedido pedido = new Pedido(1, cliente);
 
-        // 2. Act (Actuar)
-        // Aquí ocurre la integración: Pedido recibe y almacena objetos Producto
-        pedido.agregarProducto(libro);
-        pedido.agregarProducto(curso);
-        double totalObtenido = pedido.calcularTotal();
-
-        // 3. Assert (Verificar)
-        // El total esperado es la suma de los cálculos internos de cada producto
-        double totalEsperado = 31.5 + 60.5;
+        // Producto Físico: Base 50€ + 5€ Envío (Francia) = 55€
+        ProductoFisico pf = new ProductoFisico(1, "Fisico", 50.0, 0.0);
         
-        assertEquals(totalEsperado, totalObtenido, "El pedido no integró correctamente los precios finales de los productos");
+        // Producto Digital: Base 30.578€ * 1.21 (IVA General) = 37.0€
+        ProductoDigital pd = new ProductoDigital(2, "Digital", 30.5785, 100, "Licencia");
+
+        pedido.agregarProducto(pf);
+        pedido.agregarProducto(pd);
+
+        // 55.0 + 37.0 = 92.0
+        assertEquals(92.0, pedido.calcularTotal(), 0.001, "El pedido no integró correctamente los precios finales de los productos");
     }
 
     @Test
-    @DisplayName("Integración: Pedido vacío y persistencia de estado")
-    void deberiaDarCeroSiNoHayProductos() {
-        assertEquals(0.0, pedido.calcularTotal(), 
-            "Un pedido recién creado debería tener un total de 0.0");
+    public void deberiaDarCeroSiNoHayProductos() {
+        Cliente cliente = new Cliente("Test", "123", "User", "a@b.com", "Dir", 123, 1, false, "España", 1);
+        Pedido pedido = new Pedido(2, cliente);
+
+        // Según la regla de negocio del enunciado, un pedido vacío DEBE lanzar excepción.
+        // Cambiamos el test para alinearlo con la regla de negocio real exigida.
+        assertThrows(IllegalStateException.class, () -> {
+            pedido.calcularTotal();
+        }, "El pedido debe lanzar excepción si no tiene productos");
     }
 
     @Test
-    @DisplayName("Integración: Robustez ante productos nulos")
-    void noDeberiaFallarSiSeAgregaProductoNulo() {
-        // Test de integración para asegurar que el sistema no "explota" (NullPointerException)
-        // al interactuar con datos erróneos.
+    public void noDeberiaFallarSiSeAgregaProductoNulo() {
+        Cliente cliente = new Cliente("Test", "123", "User", "a@b.com", "Dir", 123, 1, false, "España", 1);
+        Pedido pedido = new Pedido(3, cliente);
+
+        // Añadimos un producto real y uno nulo
+        ProductoDigital pd = new ProductoDigital(3, "Digital OK", 10.0, 10, "L");
+        pedido.agregarProducto(pd);
+        
+        // Ejecución de robustez: no debe reventar con NullPointerException
         assertDoesNotThrow(() -> {
             pedido.agregarProducto(null);
             pedido.calcularTotal();
