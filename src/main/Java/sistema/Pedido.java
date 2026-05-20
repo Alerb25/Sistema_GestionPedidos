@@ -10,53 +10,51 @@ public class Pedido {
     public Pedido(int numPedido, Cliente cliente) {
         this.numPedido = numPedido;
         this.cliente = cliente;
-        this.productos = new ArrayList<>(); // Inicializar aquí
+        this.productos = new ArrayList<>();
     }
 
-    // metodos get y set
-    public void setNumPedido(int numPedido) {
-        this.numPedido = numPedido;
+    
+    public void agregarProducto(Producto o) {
+        if (o != null) {
+            productos.add(o);
+        }
+    }
+
+    public double calcularTotal() {
+        if (productos.isEmpty()) {
+            throw new IllegalStateException("El pedido no tiene productos");
+        }
+        
+        double total = 0;
+        for (Producto p : productos) {
+            // Evaluamos dinámicamente si es un producto físico para aplicarle el país del cliente
+            if (p instanceof ProductoFisico) {
+                ProductoFisico pf = (ProductoFisico) p;
+                double costeEnvio = pf.calcularCosteEnvio(this.cliente.getPais());
+                total += pf.getPrecioBase() + costeEnvio;
+            } else {
+                total += p.calcularPrecioFinal(); 
+            }
+        }
+        return total;
+    }
+
+    public void eliminarProducto(Producto p) {
+        productos.remove(p);
+    }
+
+    public String listarProductos() {
+        StringBuilder sb = new StringBuilder();
+        for (Producto p : productos) {
+            sb.append(p.toString()).append("\n");
+        }
+        return sb.toString();
     }
 
     public int getNumPedido() {
         return this.numPedido;
     }
 
-    // se utiliza método agregar producto
-    // (coger el tipo de producto, el nombre, y los atributos que tenga segun el
-    // tipo)
-    public void agregarProducto(Producto o) {
-        productos.add(o);
-    }
-
-    // metodo calcularTotal() (vamos sumarle el IVA)
-    public double calcularTotal() {
-        if (productos.isEmpty())
-            throw new IllegalStateException("El pedido no tiene productos");
-        double total = 0;
-        for (Producto p : productos) {
-            total += p.calcularPrecioFinal(); // cada uno aplica su lógica
-        }
-        return total;
-    }
-
-    // metodo eliminarProducto
-    public void eliminarProducto(Producto p) {
-        productos.remove(p);
-    }
-
-    // metodo listarProductos
-    public String listarProductos() {
-        StringBuilder sb = new StringBuilder();
-
-        for (Producto p : productos) {
-            sb.append(p.toString()).append("\n");
-        }
-
-        return sb.toString();
-    }
-
-    // mostrarResumen()
     public void mostrarResumen() {
         System.out.println("=== RESUMEN DEL PEDIDO ===");
         System.out.println("Número de pedido: " + numPedido);
@@ -66,5 +64,4 @@ public class Pedido {
         System.out.println(listarProductos());
         System.out.println("Total (con IVA): " + String.format("%.2f", calcularTotal()) + "€");
     }
-
 }
