@@ -24,7 +24,7 @@ class GestionPedidosIntegrationTest {
         // 1. Arrange (Preparar)
         // Creamos productos reales para ver cómo interactúan con el pedido
         ProductoFisico libro = new ProductoFisico(0, "Libro Java", 30.0, 1.5); // 30 + (1.5 * 2) = 33.0
-        ProductoDigital curso = new ProductoDigital("Curso Online", 50.0, 0, "C-202"); // 50.0 + (50*0.21) = 60.5
+        ProductoDigital curso = new ProductoDigital(0, "Curso Online", 50.0, 0, "C-202"); // 50.0 + (50*0.21) = 60.5
 
         // 2. Act (Actuar)
         // Aquí ocurre la integración: Pedido recibe y almacena objetos Producto
