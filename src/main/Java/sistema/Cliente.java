@@ -1,45 +1,128 @@
 package sistema;
+
 public class Cliente {
-    
+
     private String nombre;
     private String DNI;
     private String apellidos;
     private String correo;
     private String direccion;
     private int telf;
+    private int id;
+    private int añosAntiguedad;
+    private boolean esVip;
+    private String pais;
 
-    //constructor
-    public Cliente ( String nombre, String DNI, String apellidos, String correo, String direccion, int telf){   
+    // constructor
+    public Cliente(String nombre, String DNI, String apellidos, String correo, String direccion, int telf,
+            int añosAntiguedad, boolean esVip, String pais, int id) {
         this.nombre = nombre;
         this.DNI = DNI;
         this.apellidos = apellidos;
         this.correo = correo;
         this.direccion = direccion;
         this.telf = telf;
+        this.añosAntiguedad = añosAntiguedad;
+        this.esVip = esVip;
+        this.pais = pais;
+        this.id = id;
     }
 
-    //metodos set y get
-    public void setnombre(){ this.nombre = nombre;}
-    public void setDNI(){ this.DNI = DNI;}
-    public void setApellidos(){ this.apellidos = apellidos;}
-    public void setCorreo(){ this.correo = correo;}
-    public void setDireccion(){ this.direccion = direccion;}
-    public void setTelf(){ this.telf = telf;}
+    // metodos set y get
+    public void setnombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-    public String getNombre() {return this.nombre;}
-    public String getDNI() {return this.DNI;}
-    public String getApellidos() {return this.apellidos;}
-    public String getCorreo() {return this.correo;}
-    public String getDireccion() {return this.direccion;}
-    public int getTelf() {return this.telf;} 
+    public void setDNI( String DNI) {
+        this.DNI = DNI;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public void setCorreo( String correo) {
+        this.correo = correo;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setTelf(int telf) {
+        this.telf = telf;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setAñosAntiguedad(int añosAntiguedad) {
+        this.añosAntiguedad = añosAntiguedad;
+    }
+
+    public void setEsVip(boolean esVip) {
+        this.esVip = esVip;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public String getDNI() {
+        return this.DNI;
+    }
+
+    public String getApellidos() {
+        return this.apellidos;
+    }
+
+    public String getCorreo() {
+        return this.correo;
+    }
+
+    public String getDireccion() {
+        return this.direccion;
+    }
+
+    public int getTelf() {
+        return this.telf;
+    }
+    public int getId() {
+        return this.id;
+    }
+    public int getAñosAntiguedad() {
+        return this.añosAntiguedad;
+    }
+    public boolean getEsVip() {
+        return this.esVip;
+    }
+    public String getPais() {
+        return this.pais;
+    }
+
+    public double getDescuentoFidelidad() {
+        if (esVip && añosAntiguedad >= 5)
+            return 0.15; // 15%
+        else if (esVip)
+            return 0.10;
+        else if (añosAntiguedad >= 3)
+            return 0.05;
+        else
+            return 0.0;
+    }
 
     // metodo resumen de datos del cliente
-    public String Datos(){
+    public String Datos() {
         return "Nombre: " + getNombre() + "\n"
-        + "Apellidos: "+ getApellidos() + "\n"
-        + "DNI: " + getDNI() + "\n"
-        + "Correo:" + getCorreo() + "\n"
-        + "Direccion: " + getDireccion() + "\n"
-        + "Telefono: " + getTelf();
+                + "Apellidos: " + getApellidos() + "\n"
+                + "DNI: " + getDNI() + "\n"
+                + "Correo:" + getCorreo() + "\n"
+                + "Direccion: " + getDireccion() + "\n"
+                + "Telefono: " + getTelf();
     }
 }

@@ -1,4 +1,5 @@
 package sistema;
+
 import java.util.ArrayList;
 
 public class Pedido {
@@ -21,19 +22,19 @@ public class Pedido {
 
     // metodo calcularTotal() (vamos sumarle el IVA)
     public double calcularTotal() {
-
-        double suma = 0;
-
+        if (productos.isEmpty())
+            throw new IllegalStateException("El pedido no tiene productos");
+        double total = 0;
         for (Producto p : productos) {
-            suma += p.calcularPrecio(p);
+            total += p.calcularPrecioFinal(); // cada uno aplica su lógica
         }
-
-        return suma * 1.21;
-        // para calcular el IVA del 21%
-
+        return total;
     }
 
-    
+    // metodo eliminarProducto
+    public void eliminarProducto(Producto p) {
+        productos.remove(p);
+    }
 
     // metodo listarProductos
     public String listarProductos() {
@@ -47,11 +48,11 @@ public class Pedido {
     }
 
     // mostrarResumen()
-     public void mostrarResumen() {
+    public void mostrarResumen() {
         System.out.println("=== RESUMEN DEL PEDIDO ===");
         System.out.println("Número de pedido: " + numPedido);
-        System.out.println("Cliente: " + cliente.getNombre() + " " + cliente.getApellidos());  
-        System.out.println("DNI: " + cliente.getDNI());  
+        System.out.println("Cliente: " + cliente.getNombre() + " " + cliente.getApellidos());
+        System.out.println("DNI: " + cliente.getDNI());
         System.out.println("\nListado de productos:");
         System.out.println(listarProductos());
         System.out.println("Total (con IVA): " + String.format("%.2f", calcularTotal()) + "€");
