@@ -5,9 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import sistema.Pedido;
-import sistema.ProductoDigital;
-import sistema.ProductoFisico;
+
 
 @DisplayName("Tests de Integración: Flujo de Pedidos y Productos")
 class GestionPedidosIntegrationTest {
@@ -25,7 +23,7 @@ class GestionPedidosIntegrationTest {
     void deberiaCalcularTotalConProductosMixtos() {
         // 1. Arrange (Preparar)
         // Creamos productos reales para ver cómo interactúan con el pedido
-        ProductoFisico libro = new ProductoFisico("Libro Java", 30.0, 1.5); // 30 + (1.5 * 2) = 33.0
+        ProductoFisico libro = new ProductoFisico(0, "Libro Java", 30.0, 1.5); // 30 + (1.5 * 2) = 33.0
         ProductoDigital curso = new ProductoDigital("Curso Online", 50.0, 0, "C-202"); // 50.0 + (50*0.21) = 60.5
 
         // 2. Act (Actuar)

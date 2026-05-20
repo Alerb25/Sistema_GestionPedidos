@@ -6,14 +6,13 @@ public class ProductoDigital extends Producto {
     private int tamanoDesc;
     private String licencia;
 
-    // constructor
-    public ProductoDigital(String nombreProd, double precio, int tamanoDesc, String licencia) {
-        super(nombreProd, precio);
+    
+    public ProductoDigital(int id, String nombreProd, double precio, int tamanoDesc, String licencia) {
+        super(id, nombreProd, precio);
         this.tamanoDesc = tamanoDesc;
         this.licencia = licencia;
     }
 
-    // metodo set y get
     public void setTamano(int tamanoDesc) {
         this.tamanoDesc = tamanoDesc;
     }
@@ -31,9 +30,11 @@ public class ProductoDigital extends Producto {
     }
 
     public double aplicarIVA(String tipoIva) {
+       
+        double result = 0;
         switch (tipoIva) {
             case "GENERAL":
-                double result = getPrecioBase() * 1.21;
+                result = getPrecioBase() * 1.21;
                 break;
             case "REDUCIDO":
                  result = getPrecioBase() * 1.10;
@@ -41,30 +42,33 @@ public class ProductoDigital extends Producto {
             case "SUPER":
                 result = getPrecioBase() * 1.04;
                 break;
-            default: throw new IllegalArgumentException("Tipo de IVA no válido: " + tipoIva);
+            default:
+                result = getPrecioBase();
+                break;
         }
         return result;
     }
 
+    @Override
     public double calcularPrecioFinal() {
-
         Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el tipo de IVA (todo en minusculas) : ");
+        System.out.println("Introduce el tipo de IVA (todo en minusculas): ");
         String respuesta = sc.nextLine();
+        double precioFinal = 0;
+        
         switch (respuesta) {
             case "general":
-                aplicarIVA("GENERAL");
+                precioFinal = aplicarIVA("GENERAL");
                 break;
             case "reducido":
-                aplicarIVA("REDUCIDO");
+                precioFinal = aplicarIVA("REDUCIDO");
                 break;
             case "super":
-                aplicarIVA("SUPER");
+                precioFinal = aplicarIVA("SUPER");
                 break;
             default:
-                throw new IllegalArgumentException("Tipo de IVA no válido: " + tipoIva);
-                break;
+                throw new IllegalArgumentException("Tipo de IVA no válido: " + respuesta);
         }
+        return precioFinal;
     }
-
 }

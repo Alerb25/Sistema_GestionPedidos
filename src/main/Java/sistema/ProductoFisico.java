@@ -6,8 +6,8 @@ public class ProductoFisico extends Producto{
     private double costeEnvio;
     
     //constructor
-    public ProductoFisico ( String nombreProd, double precio, double costeEnvio){
-        super( nombreProd, precio);
+    public ProductoFisico (int id, String nombreProd, double precio, double costeEnvio){
+        super( id, nombreProd, precio);
         this.costeEnvio = costeEnvio;
     }
 
@@ -29,7 +29,7 @@ public class ProductoFisico extends Producto{
         System.out.println("Introduce el paisal que se va a enviar: ");
         String respuesta = sc.nextLine();
         double result = calcularCosteEnvio(respuesta);
-        result += precio;
+        result += getPrecioBase();
         return result;
     }
 

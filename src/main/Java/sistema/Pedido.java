@@ -13,6 +13,15 @@ public class Pedido {
         this.productos = new ArrayList<>(); // Inicializar aquí
     }
 
+    // metodos get y set
+    public void setNumPedido(int numPedido) {
+        this.numPedido = numPedido;
+    }
+
+    public int getNumPedido() {
+        return this.numPedido;
+    }
+
     // se utiliza método agregar producto
     // (coger el tipo de producto, el nombre, y los atributos que tenga segun el
     // tipo)
