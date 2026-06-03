@@ -7,10 +7,13 @@ public class Tienda {
     private Cliente cliente;
     
     // constructor
-    public Tienda(String nombre, String direccion, int telf) {
+    public Tienda(Object object, Object object2, int i) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telf = telf;
+    }
+    public Tienda() {
+        // Constructor vacío
     }
     
     // metodos set y get

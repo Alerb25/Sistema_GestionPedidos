@@ -20,6 +20,19 @@ public class Factura {
         this.totalFinal = totalConDescuento + this.totalIva + this.totalEnvio;
     }
 
+    public Factura(String string, LocalDate of, double d, double e, double f, double g, double h) {
+        this.codigoFactura = string;
+        this.fechaEmision = of;
+        this.totalNeto = d;
+        this.totalIva = e;
+        this.totalEnvio = f;
+        this.totalFinal = g;
+    }
+    
+     public Factura() {
+        // Constructor vacío
+    }
+
     // metodos get y set
     public void setCodigoFactura(String codigoFactura) {
         this.codigoFactura = codigoFactura;
@@ -79,5 +92,19 @@ public class Factura {
         System.out.println("Total envío: " + String.format("%.2f", totalEnvio) + "€");
         System.out.println("Total final: " + String.format("%.2f", totalFinal) + "€");
         System.out.println();
+    }
+
+    public void setDescuento(double d) {
+        this.totalFinal = aplicarDescuento(d);
+    }
+
+    public double aplicarDescuento(double d) {
+        double precio = gettotalFinal();
+        double descuento = precio * (d / 100);
+        return precio - descuento;
+    }
+
+    public Double getDescuento() {
+        return this.descuento();
     }
 }

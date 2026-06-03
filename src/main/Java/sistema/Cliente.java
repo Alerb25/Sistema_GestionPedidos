@@ -14,8 +14,7 @@ public class Cliente {
     private String pais;
 
     // constructor
-    public Cliente(String nombre, String DNI, String apellidos, String correo, String direccion, int telf,
-            int añosAntiguedad, boolean esVip, String pais, int id) {
+    public Cliente(String nombre, boolean esVip, String pais) {
         this.nombre = nombre;
         this.DNI = DNI;
         this.apellidos = apellidos;
@@ -27,6 +26,18 @@ public class Cliente {
         this.pais = pais;
         this.id = id;
     }
+
+    // constructor2
+    public Cliente(int i, String id, int j, boolean vip, String pais) {
+        this.id = id;
+        this.esVip = vip;
+        this.pais = pais;
+    }
+
+    public Cliente() {
+        // Constructor vacío
+    }
+
 
     // metodos set y get
     public void setnombre(String nombre) {

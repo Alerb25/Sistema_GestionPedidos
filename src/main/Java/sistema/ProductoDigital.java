@@ -13,6 +13,15 @@ public class ProductoDigital extends Producto {
         this.licencia = licencia;
     }
 
+    public ProductoDigital(int i, String string, int j) {
+        super(i, string, j);
+    }
+
+     public ProductoDigital() {
+        // Constructor vacío
+    }
+  
+
     public void setTamano(int tamanoDesc) {
         this.tamanoDesc = tamanoDesc;
     }

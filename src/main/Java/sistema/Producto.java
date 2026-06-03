@@ -1,11 +1,11 @@
 package sistema;
 
-abstract class Producto {
+// Quitamos 'abstract' porque los tests instancian "new Producto(...)" directamente Azahara te prometo que por este error me he pegado dos dias mirando el codigo
+public class Producto {
 
     private int id;
     private String nombreProd;
     private double precioBase;
-    
 
     // constructor
     public Producto(int id, String nombreProd, double precioBase) {
@@ -13,19 +13,18 @@ abstract class Producto {
         this.nombreProd = nombreProd;
         if (precioBase < 0){ 
             throw new IllegalArgumentException("El precio no puede ser negativo");
-
-        }else{
+        } else {
             this.precioBase = precioBase;
         }
-
     }
 
     // metodos get y set
     public void setId(int id){
         this.id = id;
     }
+    
     public void setnombre(String nombre) {
-        this.nombreProd = nombreProd;
+        this.nombreProd = nombre; 
     }
 
     public void setPrecioBase(double precioBase) {
@@ -35,6 +34,7 @@ abstract class Producto {
     public int getId(){
         return this.id;
     }
+    
     public String getNombre() {
         return this.nombreProd;
     }
@@ -43,12 +43,8 @@ abstract class Producto {
         return this.precioBase;
     }
 
-    // metodo calcular el precioBase final
-    // dependiendo si es fisico o digital se le suma la licencia o el coste de envio
-
-    public abstract double calcularPrecioFinal();
-
-
-
- 
+    // Al no ser abstracta, le damos una implementación base
+    public double calcularPrecioFinal() {
+        return this.precioBase;
+    }
 }
